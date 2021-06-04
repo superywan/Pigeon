@@ -24,7 +24,13 @@ export const authenticateUser = async (req, res) => {
         }
 
         const token = generateToken(user.rows[0].user_id);
-        res.json({ token });
+        res.json({
+            id: user.rows[0].user_id,
+            email: user.rows[0].email,
+            firstName: user.rows[0].first_name,
+            lastName: user.rows[0].last_name,
+            token,
+        });
     } catch (error) {
         console.error(error.message);
         res.status(500).json({ error: "server error" });
@@ -49,7 +55,13 @@ export const registerUser = async (req, res) => {
             [firstName, lastName, email, encryptedPassword]
         );
         const token = generateToken(newUser.rows[0].user_id);
-        res.json({ token });
+        res.json({
+            id: newUser.rows[0].user_id,
+            email: newUser.rows[0].email,
+            firstName: newUser.rows[0].first_name,
+            lastName: newUser.rows[0].last_name,
+            token,
+        });
     } catch (error) {
         console.error(error.message);
         res.status(500).json({ error: "server error" });
