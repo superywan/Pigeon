@@ -11,6 +11,9 @@ export const getAllPosts = async (req, res) => {
         const posts = await pool.query(
             "SELECT * FROM posts ORDER BY updated_at DESC"
         );
+        if (posts.rows.length === 0) {
+            return res.status(404).json({ error: "No post" });
+        }
         res.json(posts.rows);
     } catch (error) {
         console.error(error.message);
@@ -30,6 +33,11 @@ export const getPostByPostId = async (req, res) => {
             "SELECT * FROM posts WHERE post_id = $1",
             [postId]
         );
+        if (post.rows.length === 0) {
+            return res
+                .status(404)
+                .json({ error: `No post found with ${postId}` });
+        }
         res.json(post.rows[0]);
     } catch (error) {
         console.error(error.message);
@@ -49,6 +57,9 @@ export const getPostByEmail = async (req, res) => {
             "SELECT * FROM posts WHERE user_email = $1",
             [email]
         );
+        if (posts.rows.length === 0) {
+            return res.status(404).json({ error: "No post found" });
+        }
         res.json(posts.rows);
     } catch (error) {
         console.error(error.message);

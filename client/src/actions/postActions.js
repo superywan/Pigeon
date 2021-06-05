@@ -115,10 +115,8 @@ export const getAllPosts = () => async (dispatch) => {
 export const getPostByPostId = (postId) => async (dispatch) => {
     try {
         dispatch({ type: POST_DETAILS_REQUEST });
-        const config = {
-            "Content-Type": "application/json",
-        };
-        const { data } = await axios.get(`/api/posts/${postId}`, config);
+        console.log(postId);
+        const { data } = await axios.get(`/api/posts/${postId}`);
         dispatch({ type: POST_DETAILS_SUCCESS, payload: data });
     } catch (error) {
         dispatch({
@@ -144,7 +142,7 @@ export const getPostByEmail = () => async (dispatch, getState) => {
             `/api/posts/user/${userInfo.email}`,
             config
         );
-        dispatch({ type: POST_LIST_MY_SUCCESS, payload: POST_LIST_MY_FAIL });
+        dispatch({ type: POST_LIST_MY_SUCCESS, payload: data });
     } catch (error) {
         dispatch({
             type: POST_LIST_MY_FAIL,

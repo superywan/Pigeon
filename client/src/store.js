@@ -22,18 +22,8 @@ const rootReducer = combineReducers({
     userRegister: userRegisterReducer,
 });
 
-const userInfoFromStorage = localStorage.getItem("userInfo")
-    ? JSON.parse(localStorage.getItem("userInfo"))
-    : {};
-
-const initialState = {
-    userLogin: {
-        userInfo: userInfoFromStorage,
-    },
-};
-
 const enhancer = composeWithDevTools(applyMiddleware(reduxThunk));
 
-const store = createStore(rootReducer, initialState, enhancer);
+const store = createStore(rootReducer, enhancer);
 
 export default store;

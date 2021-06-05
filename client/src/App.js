@@ -1,14 +1,24 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-import TaskScreen from "./screens/TaskScreen";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import HomeScreen from "./screens/HomeScreen";
+import LoginScreen from "./screens/LoginScreen";
+import RegisterScreen from "./screens/RegisterScreen";
+import PostScreen from "./screens/PostScreen";
 
 function App() {
     return (
         <Router>
+            <Header />
             <Switch>
-                <Route path="/" component={TaskScreen} />
+                <Route path="/" exact component={HomeScreen} />
+                <Route path="/login" exact component={LoginScreen} />
+                <Route path="/register" exact component={RegisterScreen} />
+                <Route path="/post/:id" component={PostScreen} />
+                <Route path="/" render={() => <div>404</div>} />
             </Switch>
+            <Footer />
         </Router>
     );
 }

@@ -48,7 +48,7 @@ export const postListMyReducer = (state = { posts: [] }, action) => {
     }
 };
 
-export const postDetailsReducer = (state = {}, action) => {
+export const postDetailsReducer = (state = { post: {} }, action) => {
     switch (action.type) {
         case POST_DETAILS_REQUEST:
             return { loading: true };
