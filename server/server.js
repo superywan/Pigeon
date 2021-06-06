@@ -17,7 +17,9 @@ dotenv.config();
 app.use(express.json());
 app.use(cors());
 
+// filenames across platforms
 const dirname = dirname(fileURLToPath(import.meta.url));
+
 // production.env.NODE_ENV => production or undefined
 if (process.env.NODE_ENV === "production") {
     // serve build version of react (static files)
