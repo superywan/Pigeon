@@ -1,7 +1,8 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import path from "path";
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
 
 import { notFound } from "./middlewares/errorHandler.js";
 import userRoutes from "./routes/userRoutes.js";
@@ -27,6 +28,7 @@ app.use("/api/posts", postRoutes);
 
 app.use(notFound);
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
 // "catch all" method for the routes that we didn't specified
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client/build/index.html"));
