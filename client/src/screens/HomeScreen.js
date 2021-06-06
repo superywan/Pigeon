@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllPosts } from "../actions/postActions";
 
 import CreatePost from "../components/CreatePost";
-
 import Post from "../components/Post";
+
+import "../styles/screens/homeScreen/homeScreen.css";
 
 const HomeScreen = () => {
     const dispatch = useDispatch();
@@ -21,7 +22,14 @@ const HomeScreen = () => {
 
     return (
         <div className="home">
-            {userInfo ? <CreatePost /> : ""}
+            {userInfo ? (
+                <CreatePost />
+            ) : (
+                <div className="home__message">
+                    Login or register to tweet a message
+                    <span className="home__message--bird">🕊</span>
+                </div>
+            )}
             {loading ? (
                 <div className="home__loading">Loading...</div>
             ) : error ? (
