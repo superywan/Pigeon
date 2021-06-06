@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../actions/userActions";
 
-import twitterLogo from "../images/twitter-logo.svg";
+import pigeonLogo from "../images/pigeon-logo.png";
 import "../styles/components/header/header.css";
 
 const Header = ({ history }) => {
@@ -20,7 +20,7 @@ const Header = ({ history }) => {
             <Link to="/">
                 <img
                     className="header__logo"
-                    src={twitterLogo}
+                    src={pigeonLogo}
                     alt="company logo"
                 />
             </Link>
@@ -32,14 +32,14 @@ const Header = ({ history }) => {
                     >
                         Logout
                     </div>
-                    <div className="header__menu--profile">
-                        <Link to="/profile">Profile</Link>
-                    </div>
+                    <Link className="header__menu--profile" to="/profile">
+                        Profile
+                    </Link>
                 </div>
             ) : (
-                <div className="header__login">
-                    <Link to="/login">Login</Link>
-                </div>
+                <Link className="header__login" to="/login">
+                    Login
+                </Link>
             )}
         </div>
     );

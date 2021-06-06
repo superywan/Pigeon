@@ -1,12 +1,10 @@
 .header {
+    max-width: 800px;
     width: 70%;
     margin: 50px auto 30px auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    font-size: 32px;
-    font-weight: 700;
 
     &__logo {
         width: 50px;
@@ -16,5 +14,25 @@
         display: flex;
         width: 30%;
         justify-content: space-between;
+
+        &--logout,
+        &--profile {
+            font-size: 32px;
+            font-weight: 700;
+
+            &:hover {
+                opacity: 70%;
+                cursor: pointer;
+            }
+        }
+    }
+    &__login {
+        font-size: 32px;
+        font-weight: 700;
+
+        &:hover {
+            opacity: 70%;
+            cursor: pointer;
+        }
     }
 }

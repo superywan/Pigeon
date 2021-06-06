@@ -20,7 +20,10 @@ function App() {
                 <Route path="/profile" exact component={ProfileScreen} />
                 <Route path="/post/:id" component={PostScreen} />
                 <Route path="/edit/post/:id" component={EditPostScreen} />
-                <Route path="/" render={() => <div>404</div>} />
+                <Route
+                    path="/"
+                    render={() => <div className="fourOfour">404🐔</div>}
+                />
             </Switch>
             <Footer />
         </Router>

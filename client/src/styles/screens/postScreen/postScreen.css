@@ -1,0 +1,71 @@
+.post__loading {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.post__error {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #db6060;
+}
+
+.post__details {
+  max-width: 700px;
+  width: 70%;
+  margin: 0 auto;
+  padding: 20px 50px;
+  border: 1px solid #333333;
+  border-radius: 5px;
+}
+
+.post__details--author {
+  font-size: 15px;
+}
+
+.post__details--nickname {
+  font-size: 15px;
+  opacity: 70%;
+}
+
+.post__details--content {
+  font-size: 23px;
+  padding: 15px 0;
+}
+
+.post__details--createdAt, .post__details--updatedAt {
+  margin-bottom: 10px;
+  opacity: 70%;
+  text-align: right;
+}
+
+.post__details--control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.post__details--control__update {
+  font-size: 15px;
+  color: #1da1f2;
+}
+
+.post__details--control__update:hover {
+  opacity: 70%;
+}
+
+.post__details--control__delete {
+  margin-left: 10px;
+  font-size: 15px;
+  color: #e0245e;
+  cursor: pointer;
+}
+
+.post__details--control__delete:hover {
+  opacity: 70%;
+}
+/*# sourceMappingURL=postScreen.css.map */

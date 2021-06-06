@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../actions/userActions";
 
+import "../styles/screens/loginScreen/loginScreen.css";
+
 const LoginScreen = ({ location, history }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -22,7 +24,7 @@ const LoginScreen = ({ location, history }) => {
 
     return (
         <div className="login">
-            <div className="login__title">Login</div>
+            <div className="login__title">Log in to Pigeon</div>
             {loginLoading ? (
                 <div className="login__loading">Loading...</div>
             ) : loginError ? (
@@ -30,34 +32,32 @@ const LoginScreen = ({ location, history }) => {
             ) : (
                 ""
             )}
-            <div className="login__form">
-                <form onSubmit={submitHandler}>
-                    <label className="login__form--label" htmlFor="email">
-                        Email
-                    </label>
-                    <input
-                        className="login__form--input"
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <label className="login__form--label" htmlFor="password">
-                        Password
-                    </label>
-                    <input
-                        className="login__form--input"
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <button className="login__form--submit" type="submit">
-                        Sign In
-                    </button>
-                    <div className="login__register">
-                        <Link to="/register">Register</Link>
-                    </div>
-                </form>
-            </div>
+            <form className="login__form" onSubmit={submitHandler}>
+                <label className="login__form--label" htmlFor="email">
+                    Email
+                </label>
+                <input
+                    className="login__form--input"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <label className="login__form--label" htmlFor="password">
+                    Password
+                </label>
+                <input
+                    className="login__form--input"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <button className="login__form--submit" type="submit">
+                    Sign In
+                </button>
+                <Link className="login__register" to="/register">
+                    Sign up for Pigeon
+                </Link>
+            </form>
         </div>
     );
 };

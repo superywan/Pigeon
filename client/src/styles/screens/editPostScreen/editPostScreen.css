@@ -1,21 +1,30 @@
-.createPost {
-  max-width: 800px;
+.update {
+  max-width: 780px;
   width: 70%;
   margin: 0 auto;
 }
 
-.createPost__loading {
+.update__loading {
+  text-align: center;
   font-size: 24px;
   font-weight: 700;
 }
 
-.createPost__error {
+.update__error {
+  text-align: center;
   font-size: 24px;
   font-weight: 700;
   color: #db6060;
 }
 
-.createPost__form {
+.update__title {
+  text-align: center;
+  font-size: 31px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.update__form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -28,40 +37,40 @@
           align-items: center;
 }
 
-.createPost__form--content {
-  width: 98%;
+.update__form--content {
+  width: 97%;
   min-height: 50px;
   padding: 10px;
   border: 1px solid #333333;
   border-radius: 5px;
   background-color: black;
-  font-size: 28px;
+  font-size: 24px;
   color: white;
   resize: none;
   outline: none;
 }
 
-.createPost__form--content::-webkit-input-placeholder {
+.update__form--content::-webkit-input-placeholder {
   text-align: center;
   padding-top: 15px;
 }
 
-.createPost__form--content:-ms-input-placeholder {
+.update__form--content:-ms-input-placeholder {
   text-align: center;
   padding-top: 15px;
 }
 
-.createPost__form--content::-ms-input-placeholder {
+.update__form--content::-ms-input-placeholder {
   text-align: center;
   padding-top: 15px;
 }
 
-.createPost__form--content::placeholder {
+.update__form--content::placeholder {
   text-align: center;
   padding-top: 15px;
 }
 
-.createPost__form--bottom {
+.update__form--bottom {
   -ms-flex-item-align: end;
       align-self: flex-end;
   display: -webkit-box;
@@ -70,15 +79,16 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 10px 0 30px 0;
+  margin: 10px 0;
 }
 
-.createPost__form--bottom__length {
+.update__form--bottom__length {
   margin-right: 10px;
   opacity: 70%;
 }
 
-.createPost__form--bottom__submit {
+.update__form--bottom__undo {
+  margin-right: 10px;
   padding: 10px 15px;
   background-color: #1da1f2;
   border: none;
@@ -88,4 +98,15 @@
   font-weight: 700;
   cursor: pointer;
 }
-/*# sourceMappingURL=createPost.css.map */
+
+.update__form--bottom__submit {
+  padding: 10px 15px;
+  background-color: #1da1f2;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+/*# sourceMappingURL=editPostScreen.css.map */

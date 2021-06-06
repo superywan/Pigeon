@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import { getPostByPostId, updatePost } from "../actions/postActions";
+import { POST_UPDATE_RESET } from "../constants/postConstants";
+
+import "../styles/screens/editPostScreen/editPostScreen.css";
 
 const EditPostScreen = ({ history, match }) => {
     const [content, setContent] = useState("");
+    const [prevContent, setPrevContent] = useState("");
 
     const dispatch = useDispatch();
 
@@ -19,16 +22,18 @@ const EditPostScreen = ({ history, match }) => {
     } = postUpdate;
 
     useEffect(() => {
-        if (updateSuccess || postError) {
-            history.push(`/post/${match.params.id}`);
+        if (!post || !post.content) {
+            dispatch(getPostByPostId(match.params.id));
         } else {
-            if (!post.post_id || post.post_id !== match.params.id) {
-                dispatch(getPostByPostId(match.parasm.id));
-            } else {
-                setContent(post.content);
-            }
+            setContent(post.content);
+            setPrevContent(post.content);
         }
-    }, [dispatch, updateSuccess, postError, post, history, match]);
+
+        if (updateSuccess) {
+            dispatch({ type: POST_UPDATE_RESET });
+            history.push(`/post/${match.params.id}`);
+        }
+    }, [dispatch, post, updateSuccess, history, match]);
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -43,20 +48,42 @@ const EditPostScreen = ({ history, match }) => {
             ) : updateError || postError ? (
                 <div className="update__error">{updateError || postError}</div>
             ) : (
-                <form className="userUpdate__form" onSubmit={submitHandler}>
-                    <label className="userUpdate__form--label" htmlFor="email">
-                        Content
-                    </label>
+                <form className="update__form" onSubmit={submitHandler}>
                     <textarea
-                        className="userUpdate__form--content"
+                        className="update__form--content"
                         name="content"
                         maxLength="254"
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
                     />
-                    <button className="update__form--submit" type="submit">
-                        Update
-                    </button>
+                    <div className="update__form--bottom">
+                        <div
+                            className="update__form--bottom__length"
+                            style={{
+                                color:
+                                    content.length < 200
+                                        ? "inherit"
+                                        : "rgb(219, 96, 96)",
+                            }}
+                        >
+                            {content.length} / 255
+                        </div>
+                        <button
+                            className="update__form--bottom__undo"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                setContent(prevContent);
+                            }}
+                        >
+                            Undo
+                        </button>
+                        <button
+                            className="update__form--bottom__submit"
+                            type="submit"
+                        >
+                            Update
+                        </button>
+                    </div>
                 </form>
             )}
         </div>

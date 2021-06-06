@@ -1,9 +1,11 @@
 import {
     POST_CREATE_FAIL,
     POST_CREATE_REQUEST,
+    POST_CREATE_RESET,
     POST_CREATE_SUCCESS,
     POST_DELETE_FAIL,
     POST_DELETE_REQUEST,
+    POST_DELETE_RESET,
     POST_DELETE_SUCCESS,
     POST_DETAILS_FAIL,
     POST_DETAILS_REQUEST,
@@ -17,6 +19,7 @@ import {
     POST_LIST_SUCCESS,
     POST_UPDATE_FAIL,
     POST_UPDATE_REQUEST,
+    POST_UPDATE_RESET,
     POST_UPDATE_SUCCESS,
 } from "../constants/postConstants";
 
@@ -66,9 +69,11 @@ export const postCreateReducer = (state = {}, action) => {
         case POST_CREATE_REQUEST:
             return { loading: true };
         case POST_CREATE_SUCCESS:
-            return { loading: false, succss: true };
+            return { loading: false, success: true };
         case POST_CREATE_FAIL:
             return { loading: false, error: action.payload };
+        case POST_CREATE_RESET:
+            return {};
         default:
             return state;
     }
@@ -82,6 +87,8 @@ export const postUpdateReducer = (state = {}, action) => {
             return { loading: false, success: true };
         case POST_UPDATE_FAIL:
             return { loading: false, error: action.payload };
+        case POST_UPDATE_RESET:
+            return {};
         default:
             return state;
     }
@@ -95,6 +102,8 @@ export const postDeleteReducer = (state = {}, action) => {
             return { loading: false, success: true };
         case POST_DELETE_FAIL:
             return { loading: false, error: action.payload };
+        case POST_DELETE_RESET:
+            return {};
         default:
             return state;
     }

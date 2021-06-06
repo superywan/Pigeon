@@ -1,8 +1,9 @@
 import React, { useEffect, Fragment, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPostByEmail } from "../actions/postActions";
-
 import Post from "../components/Post";
+
+import "../styles/screens/profileScreen/profileScreen.css";
 
 const ProfileScreen = ({ history }) => {
     const [firstName, setFirstName] = useState("");
@@ -34,8 +35,8 @@ const ProfileScreen = ({ history }) => {
                 <div className="profile__error">{error}</div>
             ) : (
                 <Fragment>
-                    <div className="profile__titlie">
-                        {`${firstName} ${lastName}`}
+                    <div className="profile__title">
+                        {`${firstName} ${lastName}`}'s Recent Posts
                     </div>
                     <div className="profile__posts">
                         {posts.map((post) => (

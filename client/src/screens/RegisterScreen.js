@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../actions/userActions";
 
+import "../styles/screens/registerScreen/registerScreen.css";
+
 const RegisterScreen = ({ history }) => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -30,7 +32,7 @@ const RegisterScreen = ({ history }) => {
 
     return (
         <div className="register">
-            <div className="register__title">Register</div>
+            <div className="register__title">Create your account</div>
             {registerError && (
                 <div className="register__error">{registerError}</div>
             )}
@@ -94,10 +96,10 @@ const RegisterScreen = ({ history }) => {
                 <button className="register__form--submit" type="submit">
                     Register
                 </button>
+                <Link className="register__login" to="/login">
+                    Already have an account?
+                </Link>
             </form>
-            <div className="register__login">
-                <Link to="/loign">Login</Link>
-            </div>
         </div>
     );
 };

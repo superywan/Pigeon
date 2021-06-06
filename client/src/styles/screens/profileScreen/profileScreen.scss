@@ -1,4 +1,4 @@
-.home {
+.profile {
     &__loading {
         text-align: center;
         font-size: 24px;
@@ -12,11 +12,11 @@
         color: rgb(219, 96, 96);
     }
 
-    &__message {
+    &__title {
         text-align: center;
-        font-size: 24px;
-        margin-bottom: 30px;
+        font-size: 36px;
         font-weight: 600;
+        margin-bottom: 30px;
     }
 
     &__posts {

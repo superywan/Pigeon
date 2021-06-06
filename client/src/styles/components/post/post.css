@@ -1,4 +1,5 @@
 .postList {
+  max-width: 760px;
   width: 70%;
   height: 100px;
   padding: 15px 20px;

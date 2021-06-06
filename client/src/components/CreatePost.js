@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createPost } from "../actions/postActions";
+import { withRouter } from "react-router";
+import { createPost, getAllPosts } from "../actions/postActions";
+import { POST_CREATE_RESET } from "../constants/postConstants";
 
 import "../styles/components/createPost/createPost.css";
 
-const CreatePost = ({ history }) => {
+const CreatePost = withRouter(({ history }) => {
     const [content, setContent] = useState("");
 
     const dispatch = useDispatch();
@@ -18,8 +20,12 @@ const CreatePost = ({ history }) => {
 
     // Need to fix issue not refreshing after submit
     useEffect(() => {
-        if (createSuccess) history.push("/");
-    }, [history, createSuccess]);
+        if (createSuccess) {
+            dispatch(getAllPosts());
+            dispatch({ type: POST_CREATE_RESET });
+            history.push("/");
+        }
+    }, [dispatch, history, createSuccess]);
 
     const submitHandler = async (e) => {
         e.preventDefault();
@@ -42,8 +48,8 @@ const CreatePost = ({ history }) => {
                 <textarea
                     className="createPost__form--content"
                     name="content"
-                    maxLength="254"
-                    placeholder="What's happening?"
+                    maxLength="255"
+                    placeholder="Messenger pigeon is ready!"
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                 />
@@ -57,18 +63,18 @@ const CreatePost = ({ history }) => {
                                     : "rgb(219, 96, 96)",
                         }}
                     >
-                        {content.length + 1} / 255
+                        {content.length} / 255
                     </div>
                     <button
                         className="createPost__form--bottom__submit"
                         type="submit"
                     >
-                        Tweet
+                        Send
                     </button>
                 </div>
             </form>
         </div>
     );
-};
+});
 
 export default CreatePost;

@@ -16,6 +16,9 @@ const HomeScreen = () => {
     const userLogin = useSelector((state) => state.userLogin);
     const { userInfo } = userLogin;
 
+    const postCreate = useSelector((state) => state.postCreate);
+    const { success: createSuccess } = postCreate;
+
     useEffect(() => {
         dispatch(getAllPosts());
     }, [dispatch]);
