@@ -1,0 +1,70 @@
+.createPost {
+  width: 70%;
+  margin: 30px auto 0 auto;
+}
+
+.createPost__loading {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.createPost__error {
+  font-size: 24px;
+  font-weight: 700;
+  color: #db6060;
+}
+
+.createPost__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.createPost__form--content {
+  width: 98%;
+  min-height: 50px;
+  padding: 10px;
+  border: 1px solid #333333;
+  border-radius: 5px;
+  background-color: black;
+  font-size: 28px;
+  color: white;
+  resize: none;
+  outline: none;
+}
+
+.createPost__form--bottom {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+}
+
+.createPost__form--bottom__length {
+  margin-right: 10px;
+  opacity: 70%;
+}
+
+.createPost__form--bottom__submit {
+  padding: 10px 15px;
+  background-color: #1da1f2;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+/*# sourceMappingURL=createPost.css.map */

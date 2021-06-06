@@ -66,7 +66,7 @@ export const postCreateReducer = (state = {}, action) => {
         case POST_CREATE_REQUEST:
             return { loading: true };
         case POST_CREATE_SUCCESS:
-            return { loading: false, success: true };
+            return { loading: false, succss: true };
         case POST_CREATE_FAIL:
             return { loading: false, error: action.payload };
         default:

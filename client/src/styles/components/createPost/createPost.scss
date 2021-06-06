@@ -1,0 +1,57 @@
+.createPost {
+    width: 70%;
+    margin: 30px auto 0 auto;
+
+    &__loading {
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    &__error {
+        font-size: 24px;
+        font-weight: 700;
+        color: rgb(219, 96, 96);
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &--content {
+            width: 98%;
+            min-height: 50px;
+            padding: 10px;
+            border: 1px solid rgb(51, 51, 51);
+            border-radius: 5px;
+            background-color: black;
+            font-size: 28px;
+            color: white;
+            resize: none;
+            outline: none;
+        }
+
+        &--bottom {
+            align-self: flex-end;
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+
+            &__length {
+                margin-right: 10px;
+                opacity: 70%;
+            }
+
+            &__submit {
+                padding: 10px 15px;
+                background-color: rgb(29, 161, 242);
+                border: none;
+                border-radius: 5px;
+                color: white;
+                font-size: 16px;
+                font-weight: 700;
+                cursor: pointer;
+            }
+        }
+    }
+}

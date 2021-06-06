@@ -20,7 +20,7 @@ import {
     POST_UPDATE_SUCCESS,
 } from "../constants/postConstants";
 
-export const createPost = (title, content) => async (dispatch, getState) => {
+export const createPost = (content) => async (dispatch, getState) => {
     try {
         dispatch({ type: POST_CREATE_REQUEST });
         const {
@@ -32,7 +32,7 @@ export const createPost = (title, content) => async (dispatch, getState) => {
                 Authorization: `Bearer ${userInfo.token}`,
             },
         };
-        await axios.post("/api/posts", { title, content }, config);
+        await axios.post("/api/posts", { content }, config);
         dispatch({ type: POST_CREATE_SUCCESS });
     } catch (error) {
         dispatch({
@@ -45,31 +45,30 @@ export const createPost = (title, content) => async (dispatch, getState) => {
     }
 };
 
-export const updatePost =
-    (postId, title, content) => async (dispatch, getState) => {
-        try {
-            dispatch({ type: POST_UPDATE_REQUEST });
-            const {
-                userLogin: { userInfo },
-            } = getState();
-            const config = {
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${userInfo.token}`,
-                },
-            };
-            await axios.put(`/api/posts/${postId}`, { title, content }, config);
-            dispatch({ type: POST_UPDATE_SUCCESS });
-        } catch (error) {
-            dispatch({
-                type: POST_UPDATE_FAIL,
-                payload:
-                    error.response && error.response.data.message
-                        ? error.response.data.message
-                        : error.message,
-            });
-        }
-    };
+export const updatePost = (postId, content) => async (dispatch, getState) => {
+    try {
+        dispatch({ type: POST_UPDATE_REQUEST });
+        const {
+            userLogin: { userInfo },
+        } = getState();
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        };
+        await axios.put(`/api/posts/${postId}`, { content }, config);
+        dispatch({ type: POST_UPDATE_SUCCESS });
+    } catch (error) {
+        dispatch({
+            type: POST_UPDATE_FAIL,
+            payload:
+                error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
+        });
+    }
+};
 
 export const deletePost = (postId) => async (dispatch, getState) => {
     try {
@@ -115,7 +114,6 @@ export const getAllPosts = () => async (dispatch) => {
 export const getPostByPostId = (postId) => async (dispatch) => {
     try {
         dispatch({ type: POST_DETAILS_REQUEST });
-        console.log(postId);
         const { data } = await axios.get(`/api/posts/${postId}`);
         dispatch({ type: POST_DETAILS_SUCCESS, payload: data });
     } catch (error) {

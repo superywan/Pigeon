@@ -22,8 +22,26 @@ const rootReducer = combineReducers({
     userRegister: userRegisterReducer,
 });
 
+const userInfoFromLocalStorage = localStorage.getItem("userInfo")
+    ? JSON.parse(localStorage.getItem("userInfo"))
+    : null;
+
+let initialState = null;
+if ([userInfoFromLocalStorage].every((item) => item !== null)) {
+    initialState = {
+        userLogin: {
+            userInfo: userInfoFromLocalStorage,
+        },
+    };
+}
+
 const enhancer = composeWithDevTools(applyMiddleware(reduxThunk));
 
-const store = createStore(rootReducer, enhancer);
+let store = null;
+if (initialState) {
+    store = createStore(rootReducer, initialState, enhancer);
+} else {
+    store = createStore(rootReducer, enhancer);
+}
 
 export default store;

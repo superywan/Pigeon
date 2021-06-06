@@ -1,0 +1,27 @@
+.postList {
+    width: 70%;
+    height: 100px;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    border: 1px solid #333333;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__content {
+        font-size: 24px;
+    }
+
+    &__writter {
+        margin-top: 10px;
+        align-self: flex-end;
+        font-weight: 600;
+    }
+
+    &__date {
+        margin-top: 10px;
+        align-self: flex-end;
+        opacity: 60%;
+    }
+}

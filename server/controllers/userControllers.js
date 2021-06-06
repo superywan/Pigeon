@@ -10,9 +10,8 @@ export const authenticateUser = async (req, res) => {
             email,
         ]);
         if (user.rows.length === 0) {
-            return res
-                .status(401)
-                .json({ error: "password or email Incorrect" });
+            res.status(404);
+            throw new Error("Invalid Email or Password");
         }
 
         const isValidPwd = await bcrypt.compare(

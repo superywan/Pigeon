@@ -1,0 +1,23 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior: none;
+}
+
+html {
+    background: rgba(0, 0, 0);
+}
+
+#root {
+    margin: 0 auto;
+    color: rgb(217, 217, 217);
+}
+
+a {
+    font-style: none;
+    text-decoration: none;
+    color: rgb(217, 217, 217);
+}

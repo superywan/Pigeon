@@ -30,12 +30,12 @@ const RegisterScreen = ({ history }) => {
 
     return (
         <div className="register">
-            <h1 className="register__title">Register</h1>
+            <div className="register__title">Register</div>
             {registerError && (
-                <h3 className="register__error">{registerError}</h3>
+                <div className="register__error">{registerError}</div>
             )}
             {registerLoading && (
-                <h3 className="register__loading">Loading...</h3>
+                <div className="register__loading">Loading...</div>
             )}
             <form className="register__form" onSubmit={submitHandler}>
                 <label className="register__form--label" htmlFor="name">

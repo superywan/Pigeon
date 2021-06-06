@@ -22,11 +22,11 @@ const LoginScreen = ({ location, history }) => {
 
     return (
         <div className="login">
-            <h1 className="login__title">Sign In</h1>
+            <div className="login__title">Login</div>
             {loginLoading ? (
-                <h3 className="login__loading">Loading...</h3>
+                <div className="login__loading">Loading...</div>
             ) : loginError ? (
-                <h3 className="login__error">{loginError}</h3>
+                <div className="login__error">{loginError}</div>
             ) : (
                 ""
             )}

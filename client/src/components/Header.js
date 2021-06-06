@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../actions/userActions";
 
-const Header = () => {
+import twitterLogo from "../images/twitter-logo.svg";
+import "../styles/components/header/header.css";
+
+const Header = ({ history }) => {
     const dispatch = useDispatch();
     const userLogin = useSelector((state) => state.userLogin);
     const { userInfo } = userLogin;
@@ -14,12 +17,24 @@ const Header = () => {
 
     return (
         <div className="header">
-            <h1 className="header__title">
-                <Link to="/">Twitter Clone</Link>
-            </h1>
+            <Link to="/">
+                <img
+                    className="header__logo"
+                    src={twitterLogo}
+                    alt="company logo"
+                />
+            </Link>
             {userInfo ? (
-                <div className="header__logout" onClick={logoutHandler}>
-                    Logout
+                <div className="header__menu">
+                    <div
+                        className="header__menu--logout"
+                        onClick={logoutHandler}
+                    >
+                        Logout
+                    </div>
+                    <div className="header__menu--profile">
+                        <Link to="/profile">Profile</Link>
+                    </div>
                 </div>
             ) : (
                 <div className="header__login">

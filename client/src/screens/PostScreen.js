@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Fragment } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getPostByPostId } from "../actions/postActions";
 
-const PostScreen = ({ match }) => {
+import { getPostByPostId, deletePost } from "../actions/postActions";
+
+const PostScreen = ({ history, match }) => {
     const dispatch = useDispatch();
 
     const postDetails = useSelector((state) => state.postDetails);
@@ -21,16 +23,19 @@ const PostScreen = ({ match }) => {
         return date.toString();
     };
 
+    const handleDelete = () => {
+        dispatch(deletePost(post.post_id));
+        history.push("/");
+    };
+
     return (
         <div className="post">
-            <h1 className="post__title">Post Detail</h1>
             {postLoading ? (
                 <h3 className="post__loading">Loading...</h3>
             ) : postError ? (
                 <h3 className="post__error">{postError}</h3>
             ) : (
                 <div className="post__details">
-                    <div className="post__details--title">{post.title}</div>
                     <div className="post__details--author">
                         {post.user_name}
                     </div>
@@ -50,9 +55,19 @@ const PostScreen = ({ match }) => {
                         ""
                     )}
                     {userInfo && userInfo.email === post.user_email ? (
-                        <div className="post__details--edit">
-                            Edit and Delete
-                        </div>
+                        <Fragment>
+                            <div className="post__details--update">
+                                <Link to={`/edit/post/${post.post_id}`}>
+                                    Edit
+                                </Link>
+                            </div>
+                            <div
+                                className="post__details--delete"
+                                onClick={handleDelete}
+                            >
+                                Delete
+                            </div>
+                        </Fragment>
                     ) : (
                         ""
                     )}
