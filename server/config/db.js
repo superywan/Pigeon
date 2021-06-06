@@ -1,4 +1,4 @@
-import pg, { Pool } from "pg";
+import pg from "pg";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -16,7 +16,7 @@ const proConfig = {
     connectionString: process.env.DATABASE_URL, // Will come from heroku add-on
 };
 
-const pool = new Pool({
+const pool = new pg.Pool({
     connectionString:
         process.env.NODE_ENV === "production" ? proConfig : devConfig,
 });
