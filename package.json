@@ -3,12 +3,17 @@
     "version": "1.0.0",
     "description": "",
     "main": "server.js",
+    "engines": {
+        "node": "16.0.0",
+        "npm": "7.10.0"
+    },
     "type": "module",
     "scripts": {
         "start": "node server/server.js",
         "server": "nodemon server/server.js",
         "client": "npm start --prefix client",
-        "dev": "concurrently \"npm run server\" \"npm run client\""
+        "dev": "concurrently\"npm run server\" \"npm run client\"",
+        "heroku-postbuild": "cd client && npm install && npm run build"
     },
     "author": "Eddy Yi",
     "license": "MIT",

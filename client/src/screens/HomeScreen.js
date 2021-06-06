@@ -16,9 +16,6 @@ const HomeScreen = () => {
     const userLogin = useSelector((state) => state.userLogin);
     const { userInfo } = userLogin;
 
-    const postCreate = useSelector((state) => state.postCreate);
-    const { success: createSuccess } = postCreate;
-
     useEffect(() => {
         dispatch(getAllPosts());
     }, [dispatch]);
@@ -29,7 +26,7 @@ const HomeScreen = () => {
                 <CreatePost />
             ) : (
                 <div className="home__message">
-                    Login or register to tweet a message
+                    Login or register to post
                     <span className="home__message--bird">🕊</span>
                 </div>
             )}
