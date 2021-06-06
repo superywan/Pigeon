@@ -17,6 +17,7 @@ dotenv.config();
 app.use(express.json());
 app.use(cors());
 
+const dirname = dirname(fileURLToPath(import.meta.url));
 // production.env.NODE_ENV => production or undefined
 if (process.env.NODE_ENV === "production") {
     // serve build version of react (static files)
@@ -28,7 +29,6 @@ app.use("/api/posts", postRoutes);
 
 app.use(notFound);
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
 // "catch all" method for the routes that we didn't specified
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client/build/index.html"));
