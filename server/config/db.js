@@ -17,9 +17,7 @@ const proConfig = process.env.DATABASE_URL; // heroku PostgreSQL add-on
 const pool = new pg.Pool({
     connectionString:
         process.env.NODE_ENV === "production" ? proConfig : devConfig,
-    ssl: {
-        rejectUnauthorized: false,
-    },
+    ssl: { requestCert: true, rejectUnauthorized: false },
 });
 
 export default pool;
