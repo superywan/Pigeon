@@ -21,3 +21,5 @@ npm install
 # Run both client and server concurrently
 npm run dev
 ```
+
+![Technologies used to this project](https://i.imgur.com/7DMN7Hg.png)
