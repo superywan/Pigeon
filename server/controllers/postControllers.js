@@ -13,8 +13,8 @@ export const getAllPosts = async (req, res) => {
         );
         res.json(posts.rows);
     } catch (error) {
-        console.error(error.message);
-        res.status(500).json({ error: error.message });
+        console.error(error);
+        res.json({ error });
     }
 };
 

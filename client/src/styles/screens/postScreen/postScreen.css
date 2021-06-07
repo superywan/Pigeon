@@ -26,7 +26,7 @@
 
 .post__details--nickname {
   font-size: 15px;
-  opacity: 70%;
+  opacity: 0.7;
 }
 
 .post__details--content {
@@ -36,7 +36,7 @@
 
 .post__details--createdAt, .post__details--updatedAt {
   margin-bottom: 10px;
-  opacity: 70%;
+  opacity: 0.7;
   text-align: right;
 }
 
@@ -55,7 +55,7 @@
 }
 
 .post__details--control__update:hover {
-  opacity: 70%;
+  opacity: 0.7;
 }
 
 .post__details--control__delete {
@@ -66,6 +66,6 @@
 }
 
 .post__details--control__delete:hover {
-  opacity: 70%;
+  opacity: 0.7;
 }
 /*# sourceMappingURL=postScreen.css.map */
