@@ -1,5 +1,7 @@
-import { Pool } from "pg";
-import { parse } from "pg-connection-string";
+import pg from "pg";
+const { Pool } = pg;
+import pgString from "pg-connection-string";
+const { parse } = pgString;
 
 import dotenv from "dotenv";
 dotenv.config();
